@@ -1,0 +1,76 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "User API",
+        "version": "1.0.0",
+        "description": "API to fetch data from user table with columns username, password, age, dateOfBirth, and email."
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000"
+        }
+    ],
+    "paths": {
+        "/api/users": {
+            "get": {
+                "summary": "Fetch data from the user table.",
+                "description": "Retrieve all users from the user table with their details.",
+                "responses": {
+                    "200": {
+                        "description": "Successful response with the list of users.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "username": {
+                                                "type": "string",
+                                                "description": "The user's username."
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "description": "The user's password (consider encrypting this)."
+                                            },
+                                            "age": {
+                                                "type": "integer",
+                                                "description": "The user's age."
+                                            },
+                                            "dateOfBirth": {
+                                                "type": "string",
+                                                "format": "date",
+                                                "description": "The user's date of birth in the format `YYYY-MM-DD`."
+                                            },
+                                            "emai": {
+                                                "type": "string",
+                                                "format": "emai",
+                                                "description": "The user's emai address."
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "description": "Error message explaining the server error."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
