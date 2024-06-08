@@ -58,5 +58,15 @@
     "city": "chennai",
     "state": "tn",
     "zip_code": "34565"
+  },
+  {
+    "store_id": 7,
+    "store_name": "gross",
+    "phone": "45678987",
+    "email": "Jaagatheesh@gmail.com",
+    "street": "thiruvalluvar",
+    "city": "chennai",
+    "state": "tn",
+    "zip_code": "34565"
   }
 ]
