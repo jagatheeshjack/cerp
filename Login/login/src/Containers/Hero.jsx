@@ -10,6 +10,6 @@ export default function
             <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
             </div>
         </section>
-    </div>
+    </div> 
   )
 }

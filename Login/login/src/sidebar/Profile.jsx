@@ -3,7 +3,7 @@ import Links from '../Links'
 import Tabs from './Tabs'
 import Prof from '../assets/img/logo.svg'
 
-export default function Profile() {
+export default function Profile({ activeTabIndex, setActiveTabIndex }) {
   return (
     <div>
         <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
@@ -20,7 +20,10 @@ export default function Profile() {
                         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                     </div>
                 </div>
-                <Tabs></Tabs>
+                <Tabs 
+                activeTabIndex={activeTabIndex}
+                setActiveTabIndex={setActiveTabIndex}
+                />
             </div>
         </header>
     </div>
