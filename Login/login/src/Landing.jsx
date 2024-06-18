@@ -20,13 +20,9 @@ import './assets/vendor/swiper/swiper-bundle.min.css';
 import './assets/vendor/aos/aos.css';
 import favicon from './assets/img/favicon.png';  
 import Login from './Login/Login';
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Landing from './Landing';
-
 // import './assets/js/main.js';
 
-function App() {
+function Landing() {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   return (
@@ -45,45 +41,34 @@ function App() {
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"/>
         </head>
       <body>
+        {/* <Sidebar></Sidebar>
+        Render the content for the active tab */}
 
-        <Router>
-            <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/landing" element={<Landing />} />
-            </Routes>
-        </Router>
+
+        <Sidebar 
+                activeTabIndex={activeTabIndex} 
+                setActiveTabIndex={setActiveTabIndex}
+            />
+   
+            <main id="main">
+
+        <div className="content">
+          {activeTabIndex === 0 && <Home />}
+          {activeTabIndex === 1 && <About />}
+          {activeTabIndex === 2 && <Resume />}
+          {activeTabIndex === 3 && <Portfolio />}
+          {activeTabIndex === 4 && <Services />}
+          {activeTabIndex === 5 && <Contact />}
+        </div>
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+      </main>
       </body>
 
     </div>
-    //     {/* <Sidebar></Sidebar>
-    //     Render the content for the active tab */}
-
-
-    //     <Sidebar 
-    //             activeTabIndex={activeTabIndex} 
-    //             setActiveTabIndex={setActiveTabIndex}
-    //         />
-   
-    //         <main id="main">
-
-    //     <div className="content">
-    //       {activeTabIndex === 0 && <Home />}
-    //       {activeTabIndex === 1 && <About />}
-    //       {activeTabIndex === 2 && <Resume />}
-    //       {activeTabIndex === 3 && <Portfolio />}
-    //       {activeTabIndex === 4 && <Services />}
-    //       {activeTabIndex === 5 && <Contact />}
-    //   </div>
-    //     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-    //   </main>
-    //   </body>
-
-    // </div>
-      
   );
 }
 
-export default App;
+export default Landing;
+
+
