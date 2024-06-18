@@ -1,32 +1,37 @@
-import React from 'react'
-import Typed from 'typed.js'
+import React, { useEffect } from 'react';
+import Typed from 'typed.js';
 import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
 
 export default function Home() {
-  document.addEventListener('DOMContentLoaded', function() {
+  useEffect(() => {
     const typed = new Typed('.typed', {
-        strings: document.querySelector('.typed').getAttribute('data-typed-items').split(','),
-        typeSpeed: 500,
-        backSpeed: 250, 
-        backDelay: 1000,
-        loop: true,
+      strings: document.querySelector('.typed').getAttribute('data-typed-items').split(','),
+      typeSpeed: 100,
+      backSpeed: 50, 
+      backDelay: 1000,
+      loop: true,
     });
-}); 
-AOS.init({
-  duration: 1000,
-  delay: 200,
-  easing: 'ease-in-out', 
-  once: true, 
-});
+
+    AOS.init({
+      duration: 1000,
+      delay: 200,
+      easing: 'ease-in-out', 
+      once: true, 
+    });
+    return () => {
+      typed.destroy();
+    };
+  }, []);
 
   return (
     <div>
-      <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-        <div class="hero-container" data-aos="fade-in">
+      <section id="hero" className="d-flex flex-column justify-content-center align-items-center">
+        <div className="hero-container" data-aos="fade-in">
           <h1>Jagatheesh K</h1>
-          <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+          <p>I'm <span className="typed" data-typed-items="Web Designer, Web Developer, Freelancer,Mobile Photographer"></span></p>
         </div>
       </section>
-</div>
-  )
+    </div>
+  );
 }

@@ -6,11 +6,9 @@ namespace FetchDataApp
 {
     class Program
     {
-        static Timer _timer;
 
         static void Main(string[] args)
         {
-            _timer = new Timer(ExecuteTask, null, TimeSpan.Zero, TimeSpan.FromMinutes(1));
             Console.WriteLine("Press [Enter] to exit the program.");
             Console.ReadLine(); // Prevents the application from exiting
         }
